@@ -9,6 +9,7 @@ import javax.persistence.Enumerated;
 
 @Data
 public class DetectiveDto {
+    private Long id;
     private String badgeNumber;
     private Boolean armed;
     @Enumerated(EnumType.STRING)
