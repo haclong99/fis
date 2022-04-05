@@ -20,7 +20,7 @@ public class CriminalCaseController {
     @Autowired
     CriminalCaseService criminalCaseService;
 
-    @GetMapping("case/{id}")
+    @GetMapping("/case/{id}")
     public ResponseEntity<CriminalCaseDto> findById(@PathVariable(name = "id") Long id) {
         CriminalCase criminalCase = criminalCaseService.findById(id);
 
@@ -40,7 +40,7 @@ public class CriminalCaseController {
         return new ResponseEntity<CriminalCaseDto>(criminalCaseResponse, HttpStatus.CREATED);
     }
 
-    @PutMapping("case/{id}")
+    @PutMapping("/case/{id}")
     public ResponseEntity<CriminalCaseDto> update(@PathVariable long id, @RequestBody CriminalCaseDto criminalCaseDto) {
 
         CriminalCase criminalCaseRequest = modelMapper.map(criminalCaseDto, CriminalCase.class);
@@ -51,7 +51,7 @@ public class CriminalCaseController {
         return ResponseEntity.ok().body(criminalCaseResponse);
     }
 
-    @GetMapping("case/{username}")
+    @GetMapping("/case/{username}")
     public ResponseEntity<CriminalCaseDto> findByUsername(@PathVariable(name = "username") String username) {
         List<CriminalCase> criminalCase = criminalCaseService.findByUsername(username);
 

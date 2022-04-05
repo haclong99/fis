@@ -18,7 +18,7 @@ public class EvidenceController {
     @Autowired
     EvidenceService evidenceService;
 
-    @GetMapping("evidence/{id}")
+    @GetMapping("/evidence/{id}")
     public ResponseEntity<EvidenceDto> findById(@PathVariable(name = "id") Long id) {
         Evidence evidence = evidenceService.findById(id);
 
@@ -38,7 +38,7 @@ public class EvidenceController {
         return new ResponseEntity<EvidenceDto>(evidenceResponse, HttpStatus.CREATED);
     }
 
-    @PutMapping("evidence/{id}")
+    @PutMapping("/evidence/{id}")
     public ResponseEntity<EvidenceDto> update(@PathVariable long id, @RequestBody EvidenceDto evidenceDto) {
 
         Evidence evidenceRequest = modelMapper.map(evidenceDto, Evidence.class);

@@ -20,7 +20,7 @@ public class DetectiveController {
     @Autowired
     DetectiveService detectiveService;
 
-    @GetMapping("detective/{id}")
+    @GetMapping("/detective/{id}")
     public ResponseEntity<DetectiveDto> findById(@PathVariable(name = "id") Long id) {
         Detective detective = detectiveService.findById(id);
 
@@ -40,7 +40,7 @@ public class DetectiveController {
         return new ResponseEntity<DetectiveDto>(detectiveResponse, HttpStatus.CREATED);
     }
 
-    @PutMapping("detective/{id}")
+    @PutMapping("/detective/{id}")
     public ResponseEntity<DetectiveDto> update(@PathVariable long id, @RequestBody DetectiveDto detectiveDto) {
 
         Detective detectiveRequest = modelMapper.map(detectiveDto, Detective.class);
@@ -51,7 +51,7 @@ public class DetectiveController {
         return ResponseEntity.ok().body(detectiveResponse);
     }
 
-    @GetMapping("detective/{username}")
+    @GetMapping("/detective/{username}")
     public ResponseEntity<DetectiveDto> findByUsername(@PathVariable(name = "username") String username) {
         List<Detective> detective = detectiveService.findByUsername(username);
 
